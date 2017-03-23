@@ -1,23 +1,19 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+    <ion-navbar>
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>camera-teste</ion-title>
-  </ion-navbar>
+        <ion-title>Galeria</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <ion-card>
-    <ion-card-content>
-      Hello World, this is my camera app
-
-      <button (click)="takePicture()">Take a Picture</button>
-
-      Latest Picture:
-      <img [src]="base64Image" *ngIf="base64Image" />
-    </ion-card-content>
-  </ion-card>
+    <ion-card>
+        <ion-card-content>
+            Galeria:
+            <img [src]="base64Image" *ngIf="base64Image" />
+        </ion-card-content>
+    </ion-card>
 </ion-content>
