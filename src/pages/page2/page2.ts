@@ -101,42 +101,42 @@ export class Page2 {
       title: 'Filter options:',
       buttons: [
         {
-          text: 'Music',
+          text: 'Música',
           handler: () => {
             this.feeds = this.noFilter.filter((item) => item.data.subreddit.toLowerCase() === "music");
             this.hasFilter = true;
           }
         },
         {
-          text: 'Movies',
+          text: 'Filmes',
           handler: () => {
             this.feeds = this.noFilter.filter((item) => item.data.subreddit.toLowerCase() === "movies");
             this.hasFilter = true;
           }
         },
         {
-          text: 'Games',
+          text: 'Jogos',
           handler: () => {
             this.feeds = this.noFilter.filter((item) => item.data.subreddit.toLowerCase() === "gaming");
             this.hasFilter = true;
           }
         },
         {
-          text: 'Pictures',
+          text: 'Imagens',
           handler: () => {
             this.feeds = this.noFilter.filter((item) => item.data.subreddit.toLowerCase() === "pics");
             this.hasFilter = true;
           }
         },                
         {
-          text: 'Ask Reddit',
+          text: 'Perguntas do Reddit',
           handler: () => {
             this.feeds = this.noFilter.filter((item) => item.data.subreddit.toLowerCase() === "askreddit");
             this.hasFilter = true;
           }
         },        
         {
-          text: 'Cancel',
+          text: 'Cancelar',
           role: 'cancel',
           handler: () => {
             this.feeds = this.noFilter;
