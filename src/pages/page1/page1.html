@@ -7,20 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-<<<<<<< HEAD
-  <ion-grid>
-    <ion-row>
-      <button id="butaoTirarFoto" ion-button color="secondary" round outline block (click)="takePicture()">Camera</button>
-    </ion-row>
-    <ion-row>
-      <div id="video"></div>
-      <button ion-button color="secondary" round outline block>Ver galeria</button>
-      <img id="charizard" [src]="base64Image" *ngIf="base64Image" />
-    </ion-row>
-  </ion-grid>
-</ion-content>
-=======
+<ion-content>
     <ion-grid>
         <ion-row>
             <button id="tirarFoto" ion-button color="secondary" round outline block (click)="takePicture()">Tirar foto</button>
@@ -28,7 +15,7 @@
         <ion-row>
             <button ion-button color="secondary" round outline block>Ver galeria</button>
         </ion-row>
-        <img [src]="base64Image" *ngIf="base64Image" />
+        <img *ngFor="let image of images" [src]="image" />
     </ion-grid>
 </ion-content>
->>>>>>> f8e2e005a4ebdd24bc9c4ed443477cbe26d9e31f
+
