@@ -1,21 +1,20 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+    <ion-navbar>
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Início</ion-title>
-  </ion-navbar>
+        <ion-title>FCamara</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
     <ion-grid>
         <ion-row>
-            <button id="tirarFoto" ion-button color="secondary" round outline block (click)="takePicture()">Tirar foto</button>
+            <button ion-button color="fcamara" round outline block (click)="takePicture()">Tirar foto</button>
         </ion-row>
         <ion-row>
-            <button ion-button color="secondary" round outline block>Ver galeria</button>
+            <button ion-button color="fcamara" round outline block>Ver galeria</button>
         </ion-row>
         <img *ngFor="let image of images" [src]="image" />
     </ion-grid>
 </ion-content>
-

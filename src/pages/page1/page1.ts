@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Camera } from 'ionic-native';
+import { CameraTestePage } from '../camera-teste/camera-teste';
 
 
 @Component({
@@ -10,10 +11,13 @@ import { Camera } from 'ionic-native';
 export class Page1 {
   public base64Image: string;
   public images: string[] = [];
+  public page1: any;
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams){}
+    public navParams: NavParams){
+      this.page1 = CameraTestePage;
+    }
 
  takePicture(){
     Camera.getPicture({
