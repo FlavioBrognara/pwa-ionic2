@@ -23,9 +23,7 @@ export class Page1 {
     CameraMock.getPicture({
         destinationType: CameraMock.DestinationType.DATA_URL,
         sourceType: CameraMock.PictureSourceType.CAMERA,
-        quality: 100,
-        targetWidth: 540,
-        targetHeight: 380
+        quality: 100
     }).then((imageData) => {
       // imageData is a base64 encoded string
         this.base64Image = "data:image/jpeg;base64," + imageData;
