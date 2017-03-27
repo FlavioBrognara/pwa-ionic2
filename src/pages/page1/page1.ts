@@ -1,6 +1,6 @@
+import { CameraMock } from './../../app/app.module';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Camera } from 'ionic-native';
 import { CameraTestePage } from '../camera-teste/camera-teste';
 
 
@@ -20,8 +20,10 @@ export class Page1 {
     }
 
  takePicture(){
-    Camera.getPicture({
-        destinationType: Camera.DestinationType.DATA_URL,
+    CameraMock.getPicture({
+        destinationType: CameraMock.DestinationType.DATA_URL,
+        sourceType: CameraMock.PictureSourceType.CAMERA,
+        quality: 100,
         targetWidth: 540,
         targetHeight: 380
     }).then((imageData) => {
