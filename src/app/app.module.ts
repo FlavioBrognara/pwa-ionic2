@@ -8,15 +8,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CameraTestePage } from './../pages/camera-teste/camera-teste';
 
-import { Camera } from 'ionic-native';
+// import { Camera } from '@ionic-native/camera';
 
-export class CameraMock extends Camera {
-  getPicture(options) {
-    return new Promise((resolve, reject) => {
-      resolve("BASE_64_ENCODED_DATA_GOES_HERE");
-    })
-  }
-}
+// export class CameraMock extends Camera {
+//   getPicture(options) {
+//     console.log(JSON.stringify(options))
+//     let string = JSON.stringify(options)
+//     let Base64 = btoa(string)
+//     return new Promise((resolve, reject) => {
+//       resolve(Base64);
+//     })
+//   }
+// }
 
 @NgModule({
   declarations: [
@@ -38,7 +41,7 @@ export class CameraMock extends Camera {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: Camera, useClass: CameraMock},
+    // {provide: Camera, useClass: CameraMock},
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
