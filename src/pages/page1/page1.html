@@ -18,7 +18,7 @@
 
     <ion-card>
         <ion-card-content>
-            <ion-card>
+            <ion-card *ngFor="let card of cards">
                 <ion-item>
                     <ion-avatar item-left>
                         <img src="https://pbs.twimg.com/profile_images/803339317921873920/Myx_vxKk.jpg">
@@ -26,9 +26,7 @@
                     <h2>Hashtrack</h2>
                     <p>23/03/2017</p>
                 </ion-item>
-
-                <img *ngFor="let image of images" [src]="image">
-
+                <img [src]='card' />
                 <ion-card-content>
                     <p>Criamos plataformas e apps para a transformação digital da sua empresa</p>
                 </ion-card-content>
