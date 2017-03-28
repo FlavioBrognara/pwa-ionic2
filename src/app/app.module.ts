@@ -29,8 +29,6 @@ import { CameraTestePage } from './../pages/camera-teste/camera-teste';
   providers: [
     StatusBar,
     SplashScreen,
-
-
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

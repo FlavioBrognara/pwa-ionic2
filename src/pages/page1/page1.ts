@@ -1,38 +1,47 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { Camera } from 'ionic-native';
 
 @Component({
   selector: 'page-page1',
   templateUrl: 'page1.html'
 })
 export class Page1 {
-  public base64Image: string;
   public images: string[] = [];
-  public page1: any;
   public cards: string[] = [];
+
+
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams){
+    public navParams: NavParams) {
+  }
+
+  openCamera() {
+    // Grab elements, create settings, etc.
+    var video = <any>document.getElementById('video');
+
+    // Get access to the camera!
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      // Not adding `{ audio: true }` since we only want video now
+      navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+      });
     }
+  }
 
- takePicture(){
-    Camera.getPicture({
-        destinationType: Camera.DestinationType.DATA_URL,
-        sourceType: Camera.PictureSourceType.CAMERA,
-        quality: 100
-    }).then((imageData) => {
-      // imageData is a base64 encoded string
-        this.base64Image = "data:image/jpeg;base64," + imageData;
-        this.cards.push(this.base64Image);
-        console.log(this.images);
+  takePicture() {
+    // Elements for taking the snapshot
+    var canvas = <any> document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    var video = document.getElementById('video');
 
-        
-    }, (err) => {
-        console.log(err);
+    // Trigger photo take
+    document.getElementById("snap").addEventListener("click", function () {
+      context.drawImage(video, 0, 0, 640, 480);
     });
   }
+
 }
 

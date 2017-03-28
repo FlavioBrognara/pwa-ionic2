@@ -1,58 +1,64 @@
 <ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
+  <ion-navbar>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-        <ion-title>FCamara</ion-title>
-    </ion-navbar>
+    <ion-title>FCamara</ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content>
-    <ion-grid>
-        <ion-row>
-            <button ion-button color="fcamara" round outline block (click)="takePicture()">Tirar foto</button>
-        </ion-row>
-        <ion-row>
-        </ion-row>
-    </ion-grid>
-
-    <ion-card>
+  <ion-grid>
+    <ion-row>
+      <button ion-button color="fcamara" round outline block (click)="openCamera()">Camera</button>
+    </ion-row>
+    <ion-row>
+      <video id="video" width="640" height="480" autoplay></video>
+    </ion-row>
+    <ion-row>
+      <button id="snap" ion-button color="fcamara" round outline block (click)="takePicture()">Tirar Foto</button>
+    </ion-row>
+    <ion-row>
+      <canvas id="canvas" width="640" height="480"></canvas>
+    </ion-row>
+  </ion-grid>
+  <ion-card>
+    <ion-card-content>
+      <ion-card *ngFor="let card of cards">
+        <ion-item>
+          <ion-avatar item-left>
+            <img src="https://pbs.twimg.com/profile_images/803339317921873920/Myx_vxKk.jpg">
+          </ion-avatar>
+          <h2>Hashtrack</h2>
+          <p>23/03/2017</p>
+        </ion-item>
+        <img [src]='card' />
         <ion-card-content>
-            <ion-card *ngFor="let card of cards">
-                <ion-item>
-                    <ion-avatar item-left>
-                        <img src="https://pbs.twimg.com/profile_images/803339317921873920/Myx_vxKk.jpg">
-                    </ion-avatar>
-                    <h2>Hashtrack</h2>
-                    <p>23/03/2017</p>
-                </ion-item>
-                <img [src]='card' />
-                <ion-card-content>
-                    <p>Criamos plataformas e apps para a transformação digital da sua empresa</p>
-                </ion-card-content>
+          <p>Criamos plataformas e apps para a transformação digital da sua empresa</p>
+        </ion-card-content>
 
-                <ion-row>
-                    <ion-col>
-                        <button ion-button icon-left clear small>
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-left clear small>
         <ion-icon name="thumbs-up"></ion-icon>
         <div>12 Likes</div>
       </button>
-                    </ion-col>
-                    <ion-col>
-                        <button ion-button icon-left clear small>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-left clear small>
         <ion-icon name="text"></ion-icon>
         <div>4 comentários</div>
       </button>
-                    </ion-col>
-                    <ion-col center text-center>
-                        <ion-note>
-                            2h atrás
-                        </ion-note>
-                    </ion-col>
-                </ion-row>
+          </ion-col>
+          <ion-col center text-center>
+            <ion-note>
+              2h atrás
+            </ion-note>
+          </ion-col>
+        </ion-row>
 
-            </ion-card>
-        </ion-card-content>
-    </ion-card>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
