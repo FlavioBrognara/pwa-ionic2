@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { CameraTestePage } from '../camera-teste/camera-teste';
 
-import { Camera } from 'ionic-native';
+import { Camera } from '@ionic-native/camera';
 
 @Component({
   selector: 'page-page1',
@@ -13,27 +12,29 @@ export class Page1 {
   public images: string[] = [];
   public page1: any;
   public cards: string[] = [];
+  public photoSelected: boolean;
+  public photoTaken: boolean;
+
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams){
-      this.page1 = CameraTestePage;
-    }
+    public navParams: NavParams,
+    public camera: Camera) {
+      this.photoTaken = false;
+  }
 
- takePicture(){
-    Camera.getPicture({
-        destinationType: Camera.DestinationType.DATA_URL,
-        sourceType: Camera.PictureSourceType.CAMERA,
-        quality: 100
-    }).then((imageData) => {
-      // imageData is a base64 encoded string
-        this.base64Image = "data:image/jpeg;base64," + imageData;
-        this.cards.push(this.base64Image);
-        console.log(this.images);
-
-        
+  takePicture() {
+    var options = {
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.CAMERA,
+    };
+    this.camera.getPicture(options).then((imageData) => {
+      this.base64Image = "data:image/jpeg;base64," + imageData;
+      this.photoTaken = true;
+      this.photoSelected = false;
+      this.cards.push(this.base64Image);
     }, (err) => {
-        console.log(err);
+      console.log(err);
     });
   }
 }
