@@ -1,7 +1,8 @@
-import { CameraMock } from './../../app/app.module';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { CameraTestePage } from '../camera-teste/camera-teste';
+
+import { Camera } from 'ionic-native';
+
 
 @Component({
   selector: 'page-page1',
@@ -15,14 +16,13 @@ export class Page1 {
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams){
-      this.page1 = CameraTestePage;
+    public navParams: NavParams){d
     }
 
  takePicture(){
-    CameraMock.getPicture({
-        destinationType: CameraMock.DestinationType.DATA_URL,
-        sourceType: CameraMock.PictureSourceType.CAMERA,
+    Camera.getPicture({
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.CAMERA,
         quality: 100
     }).then((imageData) => {
       // imageData is a base64 encoded string
