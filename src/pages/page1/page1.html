@@ -13,13 +13,13 @@
       <button ion-button color="fcamara" round outline block (click)="openCamera()">Camera</button>
     </ion-row>
     <ion-row>
-      <video id="video" width="640" height="480" autoplay></video>
+      <video #video width="640" height="480" autoplay></video>
     </ion-row>
     <ion-row>
-      <button id="snap" ion-button color="fcamara" round outline block (click)="takePicture()">Tirar Foto</button>
+      <button #snap ion-button color="fcamara" round outline block (click)="takePicture()">Tirar Foto</button>
     </ion-row>
     <ion-row>
-      <canvas id="canvas" width="640" height="480"></canvas>
+      <canvas #canvas width="640" height="480"></canvas>
     </ion-row>
   </ion-grid>
   <ion-card>
